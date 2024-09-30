@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Header */
+        
+        header {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        
+        header .logo img {
+            width: 40px;
+            height: 40px;
+            transition: opacity 0.3s;
+        }
+        
+        header .logo img:hover {
+            opacity: 0.7;
+        }
+        
+        header nav {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+        }
+        
+        header nav .main-links {
+            display: flex;
+            gap: 20px;
+            margin-left: 100px;
+        }
+        
+        header nav .auth-links {
+            display: flex;
+            gap: 15px;
+            margin-left: 400px;
+            /* Mueve los botones de Login y Sign-in más hacia la izquierda */
+        }
+        
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+        
+        header nav a:hover {
+            background-color: #575757;
+        }
+        /* Zonas Verdes button */
+        
+        .zonas-verdes {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .zonas-verdes:hover {
+            background-color: darkgreen;
+        }
+        /* Slide */
+        
+        .slide-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        
+        footer .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        
+        footer .social-buttons a img {
+            width: 32px;
+            height: 32px;
+            transition: opacity 0.3s;
+        }
+        
+        footer .social-buttons a img:hover {
+            opacity: 0.7;
+        }
+        
+        footer .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        footer .contact-buttons a img {
+            width: 32px;
+            height: 32px;
+            transition: opacity 0.3s;
+        }
+        
+        footer .contact-buttons a img:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="img/image-removebg-preview.png" alt="Home">
+        </a>
+        <nav>
+            <!-- Enlaces principales -->
+            <div class="main-links">
+                <a href="zonas_verdes.html" class="zonas-verdes" style="background-color: green; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Zonas Verdes</a>
+                <a href="forum.html">Foros</a>
+                <a href="help.html">Ayuda</a>
+                <a href="aboutus.html">Sobre Nosotros</a>
+                <a href="services.html">Servicios</a>
+            </div>
+
+            <!-- Enlaces de autenticación (Login y Sign-in) con más espacio a la izquierda -->
+            <div class="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signin.html">Sign-in</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Slide -->
+    <div class="slide-container">
+        <div class="slide">
+            <img src="img/Parque natural.avif" alt="Parque Natural">
+            <img src="img/6268805470192.jpeg" alt="Jardín Botánico">
+            <img src="img/reserva.jpg" alt="Reserva Ecológica">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="display: flex; align-items: center;">
+            <hr style="flex-grow: 1; border: none; height: 1px; background-color: white; margin: 0 10px;">
+            <div class="social-buttons">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.whatsapp.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:example@gmail.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/gmail.png" alt="Gmail">
+                </a>
+            </div>
+            <hr style="flex-grow: 1; border: none; height: 1px; background-color: white; margin: 0 10px;">
+        </div>
+    </footer>
+
+    <!-- JavaScript para el carrusel -->
+    <script>
+        const slideContainer = document.querySelector('.slide');
+        let index = 0;
+
+        function showNextSlide() {
+            index++;
+            if (index >= slideContainer.children.length) {
+                index = 0;
+            }
+            slideContainer.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 3000);
+    </script>
+
+</body>
+
+</html>
