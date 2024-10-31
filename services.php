@@ -1,3 +1,6 @@
+<?php
+session_start(); // Iniciar la sesión al principio de cada archivo PHP
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,16 +15,26 @@
 
     <!-- Header -->
     <header>
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <img src="img/Logo.png" alt="Home">
         </a>
         <nav>
             <div class="main-links">
-                <a href="zonas_verdes.html" class="zonas-verdes" style="background-color: green; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Zonas Verdes</a>
-                <a href="forum.html">Foros</a>
-                <a href="help.html">Ayuda</a>
-                <a href="aboutus.html">Sobre Nosotros</a>
-                <a href="services.html">Servicios</a>
+                <a href="zonas_verdes.php" class="zonas-verdes" style="background-color: green; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Zonas Verdes</a>
+                <a href="forum.php">Foros</a>
+                <a href="help.php">Ayuda</a>
+                <a href="aboutus.php">Sobre Nosotros</a>
+                <a href="services.php">Servicios</a>
+            </div>
+            <!-- Enlaces de autenticación (Login y Sign-in) o Cerrar sesión -->
+            <div class="auth-links">
+                <?php if (isset($_SESSION['correo'])): ?>
+                    <!-- Si el usuario está autenticado, muestra "Cerrar sesión" como enlace -->
+                    <a href="logout.php" style="color: white; text-decoration: underline;">Cerrar sesión</a>
+                <?php else: ?>
+                    <a href="login.php">Login</a>
+                    <a href="signin.php">Sign-in</a>
+                <?php endif; ?>
             </div>
         </nav>
     </header>

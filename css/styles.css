@@ -49,7 +49,14 @@ header nav .main-links {
 header nav .auth-links {
     display: flex;
     gap: 15px;
-    margin-left: 500px;
+    margin-left: 400px;
+}
+
+.auth-links {
+    margin-left: auto !important;
+    /* Empuja el contenedor hacia la derecha */
+    padding-left: 100px !important;
+    /* Ajusta el valor según sea necesario */
 }
 
 header nav a {
@@ -306,25 +313,70 @@ footer .contact-buttons a img:hover {
 }
 
 
-/* Slide */
+/* Contenedor del slider */
 
 .slide-container {
     position: relative;
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 1000px;
+    height: 1000px;
+    /* Mantén la altura del contenedor fija */
+    margin: 120px auto;
     overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
+
+/* Estilos para las imágenes */
 
 .slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
+    /* Asegúrate de que el contenedor tenga un ancho del 100% */
 }
 
 .slide img {
     width: 100%;
+    height: auto;
+    /* Asegúrate de que la altura se ajuste automáticamente */
     border-radius: 10px;
+    display: none;
+    /* Oculta todas las imágenes por defecto */
+    object-fit: cover;
+    /* Asegura que la imagen cubra completamente el contenedor */
+}
+
+.slide img.active {
+    display: block;
+    /* Solo muestra la imagen activa */
+}
+
+
+/* Controles del slider */
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.control-btn {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
 
 
